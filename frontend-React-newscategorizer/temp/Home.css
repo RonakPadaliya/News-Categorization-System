@@ -1,0 +1,214 @@
+/* Lazy Load Styles */
+.card-image {
+	display: block;
+	min-height: 20rem; /* layout hack */
+	background: #fff center center no-repeat;
+	background-size: cover;
+	filter: blur(3px); /* blur the lowres image */
+}
+
+.card-image > img {
+	display: block;
+	width: 100%;
+	opacity: 0; /* visually hide the img element */
+}
+
+.card-image.is-loaded {
+	filter: none; /* remove the blur on fullres image */
+	transition: filter 1s;
+}
+
+
+
+
+/* Layout Styles */
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.mycard-list {
+	display: block;
+	margin: 1rem auto;
+	padding: 0;
+	font-size: 0;
+	text-align: center;
+	list-style: none;
+}
+
+.mycard {
+	display: inline-block;
+	width: 90%;
+	max-width: 20rem;
+	margin: 1rem;
+	font-size: 1rem;
+	text-decoration: none;
+	overflow: hidden;
+	box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+	transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+}
+
+.mycard:hover {
+	transform: translateY(-0.5rem) scale(1.0125);
+	box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+}
+
+.mycard-description {
+	display: block;
+	padding: 1em 0.5em;
+	color: #515151;
+	text-decoration: none;
+}
+
+.mycard-description > h2 {
+	margin: 0 0 0.5em;
+}
+
+.mycard-description > p {
+	margin: 0;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.card {
+    float: left;
+    /* padding: 0 1.7rem; */
+    width: 100%;
+}
+.card .menu-content {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.card .menu-content::before, .card .menu-content::after {
+    content: '';
+    display: table;
+}
+.card .menu-content::after {
+    clear: both;
+}
+.card .menu-content li {
+    display: inline-block;
+}
+.card .menu-content a {
+    color: #fff;
+}
+.card .menu-content span {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'Open Sans';
+    transform: translate(-50%, 0);
+}
+.card .wrapper {
+    background-color: #fff;
+    min-height: 540px;
+    position: relative;
+    overflow: hidden;
+    /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2); */
+}
+.card .wrapper:hover .data {
+    transform: translateY(0);
+}
+.card .data {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(calc(70px + 1em));
+    transition: transform 0.3s;
+}
+.card .data .content {
+    padding: 1em;
+    position: relative;
+    z-index: 1;
+}
+.card .author {
+    font-size: 12px;
+}
+.card .title {
+    margin-top: 10px;
+}
+.card .text {
+    height: 70px;
+    margin: 0;
+}
+.card input[type='checkbox'] {
+    display: none;
+}
+.card input[type='checkbox']:checked + .menu-content {
+    transform: translateY(-60px);
+}
+
+/* .example-2 .wrapper {
+    background: url(https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg) center / cover no-repeat;
+} */
+.example-2 .wrapper:hover .menu-content span {
+    transform: translate(-50%, -10px);
+    opacity: 1;
+}
+.example-2 .header {
+    color: #fff;
+    padding: 1em;
+}
+.example-2 .header::before, .example-2 .header::after {
+    content: '';
+    display: table;
+}
+.example-2 .header::after {
+    clear: both;
+}
+.example-2 .header .date {
+    float: left;
+    font-size: 12px;
+}
+.example-2 .menu-content {
+    float: right;
+}
+.example-2 .menu-content li {
+    margin: 0 5px;
+    position: relative;
+}
+.example-2 .menu-content span {
+    transition: all 0.3s;
+    opacity: 0;
+}
+.example-2 .data {
+    color: #fff;
+    transform: translateY(calc(70px + 4em));
+}
+.example-2 .title a {
+    color: #fff;
+}
+.example-2 .button {
+    display: block;
+    width: 100px;
+    margin: 2em auto 1em;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1;
+    position: relative;
+    font-weight: 700;
+}
+.example-2 .button::after {
+    content: '\2192';
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    transition: all 0.3s;
+}
+.example-2 .button:hover::after {
+    transform: translate(5px, -50%);
+    opacity: 1;
+}
