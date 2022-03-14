@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import Home from './components/home/Home.js'
 import Navbar from './components/navbar/Navbar.js'
 import About from './components/about/About.js'
+import Footer from './components/footer/Footer.js'
 import Categorizer from './components/news-categorizer/Categorizer.js';
 import Article from './components/article/Article.js';
 import { BrowserRouter as Router, Route, Switch, Routes} from "react-router-dom"
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <Router>
-      <div class="App">
+      <div class="App" id="myarticle">
         <Navbar />
 
         <Routes>
@@ -30,6 +31,8 @@ function App() {
           {/* <Route path={`/article`} element={<Article perticularNewsData={perticularNewsData}/>}/> */}
           <Route path={`/article`} element={<Article />}/>
         </Routes>
+
+        <Footer/>
       </div>
     </Router>
   );

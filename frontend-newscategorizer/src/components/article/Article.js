@@ -59,7 +59,7 @@ function Article() {
     },[temp])
 
     return ( 
-        <div className='articlebd' id="myarticle">
+        <div className='bg-light' >
             {/* {
                 localStorage.getItem("perticularNewsData")!==null?
                     setData(JSON.parse(localStorage.getItem('perticularNewsData')))
@@ -72,7 +72,7 @@ function Article() {
                 :
                     <div class="row row-no-gutters">
                         <div class="col-xs-12 col-md-9">
-                            <div style={{ color:'white',  border:"1px solid", borderRadius:"10px"}} class="m-3">
+                            <div style={{ color:'black',  border:"1px solid", borderRadius:"10px"}} class="m-3">
                                 <h3>{data.news[id].title}</h3>
                                 <span></span>
                                 <hr/>
@@ -80,34 +80,47 @@ function Article() {
                             </div>
                         </div>
                         <div class="col-xs-6 col-md-3">
-                            <div style={{border:"1px solid white", borderRadius:"10px"}} class="m-3">
+                            <div style={{border:"1px solid black", borderRadius:"10px"}} class="m-3">
                                 <h5 style={{backgroundColor:'white', border:"2px solid", borderRadius:"10px"}}>Author : </h5>
                                 <br/>
                                 {
                                     data.news[id].author === null ?
-                                        <p style={{color:'white'}}>Not Specified</p>
+                                        <p style={{color:'black'}}>Not Specified</p>
                                     :
-                                        <p style={{color:'white'}}>{data.news[id].author}</p>
+                                        <p style={{color:'black'}}>{data.news[id].author}</p>
                                 }
                             </div>
 
-                            <div style={{border:"1px solid white", borderRadius:"10px"}} class="m-3">
+                            <div style={{border:"1px solid black", borderRadius:"10px"}} class="m-3">
                                 <h5 style={{backgroundColor:'white', border:"2px solid", borderRadius:"10px"}}>Published At : </h5>
                                 <br/>
-                                <p style={{color:'white'}}>{data.news[id].published.substr(0,10)}</p>
+                                <p style={{color:'black'}}>{data.news[id].published.substr(0,10)}</p>
                             </div>
 
-                            <div style={{border:"1px solid white", borderRadius:"10px"}} class="m-3">
+                            <div style={{border:"1px solid black", borderRadius:"10px"}} class="m-3">
+                                <h5 style={{backgroundColor:'white', border:"2px solid", borderRadius:"10px"}}>Category : </h5>
+                                <br/>
+                                {
+                                    data.news[id].category?
+                                        data.news[id].category.map((i,index)=>(
+                                            <p style={{color:'black'}}>{i}</p>
+                                        ))
+                                    :
+                                        <p style={{color:'black'}}>None</p>
+                                }
+                            </div>
+
+                            <div style={{border:"1px solid black", borderRadius:"10px"}} class="m-3">
                                 <h5 style={{backgroundColor:'white', border:"2px solid", borderRadius:"10px"}}>Source Link : </h5>
                                 <br/>
-                                <a href={data.news[id].url} target="_blank" style={{color:'white'}}><u>View News in Source Website --&gt;</u></a>
+                                <a href={data.news[id].url} target="_blank" style={{color:'blue'}}><u>View News in Source Website --&gt;</u></a>
                             </div>
                         </div>
-                        <div style={{color:"white", border:"1px solid white", borderRadius:"10px"}} class='col m-3'>
-                            <p style={{textAlign:"left", fontWeight:"bold", fontSize:'25px'}}>Description : </p>
+                        <div style={{color:"white", border:"1px solid black", borderRadius:"10px"}} class='col m-3'>
+                            <p style={{textAlign:"left", fontWeight:"bold", fontSize:'25px',color:'black'}}>Description : </p>
                             {
                                 data.news[id].description?
-                                    <div style={{textAlign:"left", fontSize:'20px'}}>
+                                    <div style={{textAlign:"left", fontSize:'20px',color:'black'}}>
                                         <p>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             {data.news[id].description}
@@ -140,10 +153,14 @@ function Article() {
                                             <p> {temp.news[index].title}</p>
                                             <p class="read-more">
                                                 <Link to={`/article/?id=${index}&key=${temp.news[index].id}`} >Read More</Link>
-                                                {/* <Link onClick={rerender}></Link> */}
-                                                {/* <Link onClick={()=><Redirect to={`/article/?id=${index}`}/>}>Read More</Link> */}
-
                                             </p>
+                                            <div class="d-flex flex-wrap justify-content-center">
+                                                {
+                                                    article.category.map((i)=>(
+                                                        <p style={{margin:'5px',padding:'5px', border:'1px solid black', borderRadius:'50px'}}>{i}</p>
+                                                    ))
+                                                }
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -1,17 +1,56 @@
-/* .aboutimg {height:100px; width:100%;}
-
-.simp {margin-left:45px;}
-
-.hr {color:rgb(168, 223, 237);}
-
-.abouth1 {text-align:center; font-size: 40px; font-family:Serif; font-weight: strong;}
-
-.aboutimage {width:34%; height: 200px;location:absolute; border:solid;padding:5px;border-width:1px; border-color:grey; float:left; }
-
-.aboutp {font-family:Sans-Serif; text-align:left; font-size: 20px}
-
- #grey {background-color:grey;}
-
-
-
-.aboutcontainer {background-color:grey;} */
+.about-section{
+    background-size: 55%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    height: 100%;
+    padding: 10px 0;
+}
+ 
+.inner-container{
+    width: 90%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 100px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.inner-container .abouth1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+ 
+.text{
+    font-size: 15px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+.abouth1{
+  color: #F85370;
+}
+ 
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+ 
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+ 
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+}

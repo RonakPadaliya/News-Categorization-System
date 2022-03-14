@@ -32,8 +32,10 @@
   .info{
     margin: 0.5em 0;
     font-size: 1.25em;
-    color: #FFF;
-    text-shadow: 0 0 0.5em #000;
+    /* color: #FFF; */
+    color: black;
+    /* text-shadow: 0 0 0.5em #000; */
+    text-shadow: 0 0 0.5em yellow;
   }
   
   .input-phone{

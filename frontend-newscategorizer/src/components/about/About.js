@@ -23,23 +23,22 @@ function About() {
       }
 
     return ( 
-        <div class="m-3">
-            <div class="aboutcontainer-fluid">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Cloud_banner.jpg" class="aboutimg"/>  
-                    <h1 class="abouth1 alert alert-info"> About Us </h1>      
-                    <hr class="hr"/>
-                    <p class="aboutp" style={{paddingRight:'10px', paddingLeft:'10px'}}>
+        <div class="m-3" >
+
+            <div class="about-section d-flex justify-content-center">
+                <div class="inner-container">
+                    <h1 class="abouth1">About Us</h1>
+                    <p class="text" style={{color:'black'}}>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We make a News Prediction website which using diffrent <b style={{fontSize: '15px'}}><u>Machine Learning Classification Algorithms</u></b>. We also show current News Details using public apis(i.e. Currents API). 
                     </p>
-                    <p class="aboutp" style={{paddingRight:'10px', paddingLeft:'10px'}}>
+                    <p class="text" style={{color:'black'}}>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This Project made under Computer Enginnering Semester-6 subject called SDP(Software Development Process) in Dharmsinh Desai University, Nadiad.
                     </p>
                 </div>
             </div>
 
-            <div class="" style={{marginTop:"100px"}}>
-                <h1 class="abouth1 alert alert-dark"> Our Team </h1>
+            <div class="" style={{marginTop:"50px"}}>
+                <h1 class="alert alert-dark "> Our Team </h1>
                 <hr class="hr"/>
 
                 <div class="d-flex flex-wrap justify-content-center">

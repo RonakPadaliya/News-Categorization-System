@@ -40,10 +40,8 @@ function Navbar() {
                         </div>
                         <ul class="nav no-search">
                             <li class="nav-item"><Link to="/" >Home</Link></li>
-                            <li class="nav-item"><Link to="/about" >About</Link></li>
                             <li class="nav-item"><Link to="/news-categorizer" >News</Link></li>
-                            <li class="nav-item"><Link to="/" >Careers</Link></li>
-                            <li class="nav-item"><Link to="/" >Contact Us</Link></li>
+                            <li class="nav-item"><Link to="/about" >About Us</Link></li>
                             {/* <i class="fas fa-search" id="search-icon" ></i>
                             <input class="search-input" type="text" placeholder="Search.." /> */}
                         </ul>

@@ -31,7 +31,7 @@ function Categorizer() {
     };
 
     return ( 
-        <div class="bg">
+        <div class="bg-light">
             <div class="body">
                 <div class="wrapper">
                     <div class="info">Enter News :-</div>

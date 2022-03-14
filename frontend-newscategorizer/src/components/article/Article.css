@@ -5,8 +5,8 @@
       linear-gradient(108deg, #26D0CE, #1A2980 100%); 
   }
   img {
-    width: 100%;
-    max-width: 80%;
+    width: 80%;
+    /* max-width: 80%; */
   }
   
   /******************************************

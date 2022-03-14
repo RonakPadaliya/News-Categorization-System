@@ -35,7 +35,8 @@ function Home({getnewsdata}) {
 
     
     return (
-        <div style={{width:'100%'}} class="homebg">
+        // <div style={{width:'100%'}} class="homebg">
+        <div style={{width:'100%'}} class="bg-light">
             <div class="m-3">
                 <Carousel />
             </div>
@@ -67,6 +68,13 @@ function Home({getnewsdata}) {
                                         <h6>{newsData.news[0].title}</h6>
                                         <span>{newsData.news[0].author}</span>
                                     </article>
+                                    <div class="d-flex flex-wrap justify-content-center">
+                                        {
+                                            newsData.news[0].category.map((i)=>(
+                                                <p style={{margin:'5px',padding:'5px', border:'1px solid black', borderRadius:'50px'}}>{i}</p>
+                                            ))
+                                        }
+                                    </div>
                                 </Link>
                             </div>
                             {
@@ -82,6 +90,13 @@ function Home({getnewsdata}) {
                                                     <h6>{article.title}</h6>
                                                     <span>{article.author}</span>
                                                 </article>
+                                                <div class="d-flex flex-wrap justify-content-center">
+                                                    {
+                                                        article.category.map((i)=>(
+                                                            <p style={{margin:'5px',padding:'5px', border:'1px solid black', borderRadius:'50px'}}>{i}</p>
+                                                        ))
+                                                    }
+                                                </div>
                                             </Link>
                                         </div>
                                     :null
