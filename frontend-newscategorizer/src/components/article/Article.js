@@ -3,6 +3,7 @@ import {useLocation} from 'react-router-dom';
 import './Article.css'
 import axios from 'axios';
 import { Link ,NavLink, Navigate, useHistory} from "react-router-dom";
+import $ from 'jquery';
 // import {Redirect} from "react-router";
 
 function Article() {
@@ -23,16 +24,23 @@ function Article() {
     // },[])
 
     useEffect(() => {
+        $('html, body').animate({
+            scrollTop: $("#myarticle").offset().top
+        }, 100);
+    },[query.get('key')])
+        
+
+    useEffect(() => {
         if(localStorage.getItem('perticularNewsData') !==null)
         {
             setData(JSON.parse(localStorage.getItem('perticularNewsData')))
             console.log("In If");
         }
-        else if(localStorage.getItem('newsData') != null)
+        else
         {
             setData(JSON.parse(localStorage.getItem('newsData')))
         }
-    },[])
+    },[useLocation().search])
 
     useEffect(() => {
         if(data.status==='ok')
@@ -51,7 +59,7 @@ function Article() {
     },[temp])
 
     return ( 
-        <div className='articlebd'>
+        <div className='articlebd' id="myarticle">
             {/* {
                 localStorage.getItem("perticularNewsData")!==null?
                     setData(JSON.parse(localStorage.getItem('perticularNewsData')))
@@ -131,7 +139,8 @@ function Article() {
                                             <h6>{temp.news[index].published.substr(0,10)}</h6>
                                             <p> {temp.news[index].title}</p>
                                             <p class="read-more">
-                                                {/* <Link to={`/article/?id=${index}`}>Read More</Link> */}
+                                                <Link to={`/article/?id=${index}&key=${temp.news[index].id}`} >Read More</Link>
+                                                {/* <Link onClick={rerender}></Link> */}
                                                 {/* <Link onClick={()=><Redirect to={`/article/?id=${index}`}/>}>Read More</Link> */}
 
                                             </p>

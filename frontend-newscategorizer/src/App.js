@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
-// import Home from './components/home/Home.js'
-import Home from './components/home/temp2.js'
+import Home from './components/home/Home.js'
 import Navbar from './components/navbar/Navbar.js'
 import About from './components/about/About.js'
 import Categorizer from './components/news-categorizer/Categorizer.js';

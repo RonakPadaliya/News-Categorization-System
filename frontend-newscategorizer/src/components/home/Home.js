@@ -12,12 +12,12 @@ function Home({getnewsdata}) {
     const [newsData,setNewsData] = useState([])
 
     useEffect(()=>{
-        axios.get('https://newsapi.org/v2/top-headlines?country=in&apiKey=ad744843d26d4dfa9429f843008270fa')
+        axios.get('https://api.currentsapi.services/v1/latest-news?apiKey=GTc76J05xalLJ9s7EwkdnQv_5ba8sjsKt0lHMhX39vjpM3Qt')
             .then(res=>{
                 let data=res.data
                 console.log(data)
                 setNewsData(data)
-                console.log("data.articles = ", data.articles)
+                console.log("data.articles = ", data.news)
                 console.log("newsdata = ", newsData)
                 
                 getnewsdata(data)
@@ -30,91 +30,70 @@ function Home({getnewsdata}) {
 
     useEffect(() => {
         localStorage.setItem("newsData", JSON.stringify(newsData));
+        localStorage.removeItem("perticularNewsData");
     },[newsData])
 
     
     return (
-        <div class='body homebg' >
+        <div style={{width:'100%'}} class="homebg">
             <div class="m-3">
                 <Carousel />
             </div>
 
-            <ul class="mycard-list">
-                {
-                        newsData.status==='ok'?
-                            newsData.articles.map((article, index) => (
-                                <li class="mycard" key={index}>
-                                    <div class="example-1 card">
-                                        <div class="wrapper" style={{background: `url(${article.urlToImage}) 20% 1% / cover no-repeat`}}>
-                                            <div class="date">
-                                                <span class="day">{article.publishedAt.substr(8,2)}</span>
-                                                {
-                                                    article.publishedAt.substr(5,2)==="01"?
-                                                        <span class="month">JAN</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="02"?
-                                                        <span class="month">FEB</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="03"?
-                                                        <span class="month">MAR</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="04"?
-                                                        <span class="month">APR</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="05"?
-                                                        <span class="month">MAY</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="06"?
-                                                        <span class="month">JUN</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="07"?
-                                                        <span class="month">JUL</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="08"?
-                                                        <span class="month">AUG</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="09"?
-                                                        <span class="month">SEP</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="10"?
-                                                        <span class="month">OCT</span>
-                                                    :
-                                                    article.publishedAt.substr(5,2)==="11"?
-                                                        <span class="month">NAV</span>
-                                                    :
-                                                        <span class="month">DEC</span>                                                
-                                                }
-                                                <span class="year">{article.publishedAt.substr(0,4)}</span>
-                                            </div>
-                                        </div>
-                                        <div style={{textAlign:'left', backgroundColor:'lightgrey'}} class='p-3'>
-                                            {
-                                                article.author===null?
-                                                    <p>Author : None</p>
-                                                :
-                                                    <p>Author : {article.author}</p>
-                                            }
-                                        </div>
-                                    </div>
-                                            
-                                    <div style={{backgroundColor:'white', height:'750px'}}>
+            <div class="support-grid"></div>
 
-                                        <div style={{textAlign:'center'}}>
-                                            <p style={{fontSize:'17px', padding:'5px'}} >{article.title}</p>
+            {/* <div class="band">
+                {
+                    newsData.status==='ok'?
+                        <div class="item-1">
+                            <a href="https://design.tutsplus.com/articles/international-artist-feature-malaysia--cms-26852" class="card">
+                                <div class="thumb" style={{backgroundImage: `url(${newsData.articles[0].urlToImage})`}}></div>
+                                <article>
+                                <h6>{newsData.articles[0].title}</h6>
+                                <span>Mary Winkler</span>
+                                </article>
+                            </a>
+                        </div>
+                    :null
+                } */}
+
+                {
+                    newsData.status==='ok'?
+                        <div class="band">
+                            <div class="item-1">
+                                <Link to={`/article/?id=${0}&key=${newsData.news[0].id}`} class="card">
+                                    <div class="thumb" style={{backgroundImage: `url(${newsData.news[0].image})`}}></div>
+                                    <article>
+                                        <h6>{newsData.news[0].title}</h6>
+                                        <span>{newsData.news[0].author}</span>
+                                    </article>
+                                </Link>
+                            </div>
+                            {
+                                newsData.news.map((article, index) => (
+                                    index !== 0?
+                                        <div class="item-2">
+                                            <Link to={`/article/?id=${index}&key=${article.id}`} class="card">
+                                                {/* <div class="d-flex justify-content-center">
+                                                    <p>{article.publishedAt.substr(0,10)}</p>
+                                                </div> */}
+                                                <div class="thumb" style={{backgroundImage: `url(${article.image})`}}></div>
+                                                <article>
+                                                    <h6>{article.title}</h6>
+                                                    <span>{article.author}</span>
+                                                </article>
+                                            </Link>
                                         </div>
-                                    </div>
-                                    <div class="d-flex justify-content-end p-2" style={{backgroundColor:'white'}}>
-                                        <div>
-                                            <Link to={`/article/?id=${index}`}>Read More &gt;&gt;</Link>
-                                        </div>
-                                    </div>
-                                </li>
-                    
-                            ))
-                        :
+                                    :null
+                                ))
+                            }
+                        </div>
+                    :
+                        <div class="d-flex justify-content-center">
                             <img src={process.env.PUBLIC_URL+"loading1.gif"} style={{width:'100px'}}/>
+                        </div>
                 }
-            </ul>
+            {/* </div> */}
         </div>
      );
 }

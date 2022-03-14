@@ -30,7 +30,9 @@ function Navbar() {
                 <div class="nav-wrapper" style={{zIndex:2}}>
                     <div class="grad-bar"></div>
                     <nav class="navbar">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c8/Bluestar_%28bus_company%29_logo.svg/1280px-Bluestar_%28bus_company%29_logo.svg.png" alt="Company Logo" />
+                        {/* <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c8/Bluestar_%28bus_company%29_logo.svg/1280px-Bluestar_%28bus_company%29_logo.svg.png" alt="Company Logo" /> */}
+                        {/* <img src="https://looka.com/s/85007381" alt="Company Logo" /> */}
+                        <img src={process.env.PUBLIC_URL+"logo4.png"} style={{width:'100px', height:'40px'}} alt="Web Application Logo" />
                         <div class="menu-toggle" id="mobile-menu">
                             <span class="bar"></span>
                             <span class="bar"></span>
@@ -42,8 +44,8 @@ function Navbar() {
                             <li class="nav-item"><Link to="/news-categorizer" >News</Link></li>
                             <li class="nav-item"><Link to="/" >Careers</Link></li>
                             <li class="nav-item"><Link to="/" >Contact Us</Link></li>
-                            <i class="fas fa-search" id="search-icon" ></i>
-                            <input class="search-input" type="text" placeholder="Search.." />
+                            {/* <i class="fas fa-search" id="search-icon" ></i>
+                            <input class="search-input" type="text" placeholder="Search.." /> */}
                         </ul>
                     </nav>
                     <div class="grad-bar"></div>

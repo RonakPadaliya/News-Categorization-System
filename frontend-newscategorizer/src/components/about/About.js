@@ -1,6 +1,7 @@
 import './About.css';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {Link } from "react-router-dom";
 
 function About() {
     const [data, setData]= useState([]);
@@ -16,18 +17,59 @@ function About() {
             .catch(err => {})
     },[]);
 
-    return ( 
-        <div>
-            About
+    function RedirectForMail(email) {
+        const url = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email;
+        window.open(url);
+      }
 
-            {
-                data.map((detail, id) => (
-                    <div>
-                        <h1>{detail.news}</h1>
-                        <h2>{detail.prediction}</h2>
+    return ( 
+        <div class="m-3">
+            <div class="aboutcontainer-fluid">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Cloud_banner.jpg" class="aboutimg"/>  
+                    <h1 class="abouth1 alert alert-info"> About Us </h1>      
+                    <hr class="hr"/>
+                    <p class="aboutp" style={{paddingRight:'10px', paddingLeft:'10px'}}>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We make a News Prediction website which using diffrent <b style={{fontSize: '15px'}}><u>Machine Learning Classification Algorithms</u></b>. We also show current News Details using public apis(i.e. Currents API). 
+                    </p>
+                    <p class="aboutp" style={{paddingRight:'10px', paddingLeft:'10px'}}>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This Project made under Computer Enginnering Semester-6 subject called SDP(Software Development Process) in Dharmsinh Desai University, Nadiad.
+                    </p>
+                </div>
+            </div>
+
+            <div class="" style={{marginTop:"100px"}}>
+                <h1 class="abouth1 alert alert-dark"> Our Team </h1>
+                <hr class="hr"/>
+
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="card m-3" style={{width: "18rem"}}>
+                        <div class="card-body">
+                            <h5 class="card-title">Ronak Padaliya</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Computer Engineering (Sem-6)</h6>
+                            <p class="card-text">Dharmsinh Desai University, Nadiad</p>
+                            <button class="btn btn-primary" onClick={()=>(RedirectForMail("ronakpadaliya77@gmail.com"))}>Contact</button>
+                        </div>
                     </div>
-                ))
-            }
+                    <div class="card m-3" style={{width: "18rem"}}>
+                        <div class="card-body">
+                            <h5 class="card-title">Visrut Navadiya</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Computer Engineering (Sem-6)</h6>
+                            <p class="card-text">Dharmsinh Desai University, Nadiad</p>
+                            <button class="btn btn-primary" onClick={()=>(RedirectForMail("visrutnavadiya111@gmail.com"))}>Contact</button>
+                        </div>
+                    </div>
+                    <div class="card m-3" style={{width: "18rem"}}>
+                        <div class="card-body">
+                            <h5 class="card-title">Bhumit Navadiya</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Computer Engineering (Sem-6)</h6>
+                            <p class="card-text">Dharmsinh Desai University, Nadiad</p>
+                            <button class="btn btn-primary" onClick={()=>(RedirectForMail("bhumitnavadiya555@gmail.com"))}>Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            
         </div>
      );
 }

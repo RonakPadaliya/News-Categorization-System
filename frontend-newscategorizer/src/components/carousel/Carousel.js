@@ -31,10 +31,10 @@ function Carousel() {
                     {
                         data.status==='ok'?
                             <div >
-                                <div class='bg-light p-3'>
+                                <div class='p-3' style={{backgroundColor:"orange", border:'1px solid black', borderRadius:'10px'}}>
                                     <h5>{data.news[length-1].title}</h5>
                                 </div>
-                                <Link to={`/article/?id=${length-1}`}>
+                                <Link to={`/article/?id=${length-1}&key=${data.news[length-1].id}`}>
                                     <img src={data.news[length-1].image} class='carousel-image'/>
                                 </Link>
                             </div>
@@ -42,14 +42,14 @@ function Carousel() {
                             <p>Loading...</p>
                     }
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" >
                     {
                         data.status==='ok'?
                             <div >
-                                <div class='bg-light p-3'>
+                                <div class='p-3' style={{backgroundColor:"white", border:'1px solid black', borderRadius:'10px'}}>
                                     <h5>{data.news[length-2].title}</h5>
                                 </div>
-                                <Link to={`/article/?id=${length-2}`}>
+                                <Link to={`/article/?id=${length-2}&key=${data.news[length-2].id}`}>
                                     <img src={data.news[length-2].image} class='carousel-image'/>
                                 </Link>
                             </div>
@@ -61,10 +61,10 @@ function Carousel() {
                     {
                         data.status==='ok'?
                             <div >
-                                <div class='bg-light p-3'>
+                                <div class='p-3' style={{backgroundColor:"lightgreen", border:'1px solid black', borderRadius:'10px'}}>
                                     <h5>{data.news[length-3].title}</h5>
                                 </div>
-                                <Link to={`/article/?id=${length-3}`}>
+                                <Link to={`/article/?id=${length-3}&key=${data.news[length-3].id}`}>
                                     <img src={data.news[length-3].image} class='carousel-image'/>
                                 </Link>
                             </div>
