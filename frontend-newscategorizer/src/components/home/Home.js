@@ -43,26 +43,11 @@ function Home({getnewsdata}) {
 
             <div class="support-grid"></div>
 
-            {/* <div class="band">
-                {
-                    newsData.status==='ok'?
-                        <div class="item-1">
-                            <a href="https://design.tutsplus.com/articles/international-artist-feature-malaysia--cms-26852" class="card">
-                                <div class="thumb" style={{backgroundImage: `url(${newsData.articles[0].urlToImage})`}}></div>
-                                <article>
-                                <h6>{newsData.articles[0].title}</h6>
-                                <span>Mary Winkler</span>
-                                </article>
-                            </a>
-                        </div>
-                    :null
-                } */}
-
                 {
                     newsData.status==='ok'?
                         <div class="band">
                             <div class="item-1">
-                                <Link to={`/article/?id=${0}&key=${newsData.news[0].id}`} class="card">
+                                <Link to={`/article/?id=${0}&key=${newsData.news[0].id}`} class="home-card">
                                     <div class="thumb" style={{backgroundImage: `url(${newsData.news[0].image})`}}></div>
                                     <article>
                                         <h6>{newsData.news[0].title}</h6>
@@ -81,7 +66,7 @@ function Home({getnewsdata}) {
                                 newsData.news.map((article, index) => (
                                     index !== 0?
                                         <div class="item-2">
-                                            <Link to={`/article/?id=${index}&key=${article.id}`} class="card">
+                                            <Link to={`/article/?id=${index}&key=${article.id}`} class="home-card">
                                                 {/* <div class="d-flex justify-content-center">
                                                     <p>{article.publishedAt.substr(0,10)}</p>
                                                 </div> */}

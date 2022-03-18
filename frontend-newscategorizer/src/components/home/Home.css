@@ -44,9 +44,8 @@ html {
     }
   }
   
-  /* card */
   
-  .card {
+  .home-card {
     min-height: 100%;
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -59,12 +58,12 @@ html {
     transition: all .1s ease-in;
   }
   
-  .card:hover {
+  .home-card:hover {
     top: -2px;
     box-shadow: 0 4px 5px rgba(0,0,0,0.2);
   }
   
-  .card article {
+  .home-card article {
     padding: 20px;
     display: flex;
     
@@ -73,13 +72,13 @@ html {
     flex-direction: column;
     
   }
-  .card .thumb {
+  .home-card .thumb {
     padding-bottom: 60%;
     background-size: cover;
     background-position: center center;
   }
   
-  .card p { 
+  .home-card p { 
     flex: 1; /* make p grow to fill available space*/
   }
   
@@ -89,7 +88,7 @@ html {
     color: #333;
   }
   
-  .card span {
+  .home-card span {
     font-size: 12px;
     font-weight: bold;
     color: #999;

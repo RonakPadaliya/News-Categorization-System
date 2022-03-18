@@ -34,7 +34,8 @@ function Categorizer() {
         <div class="bg-light">
             <div class="body">
                 <div class="wrapper">
-                    <div class="info">Enter News :-</div>
+                    {/* <div class="info">Enter News :-</div> */}
+                    <h1 style={{margin: "30px", fontSize: "25px", fontWeight: "900", color:"#F85370"}}>Enter News :-</h1>
                     <form onSubmit={handleSubmit}>
                         {/* <input class="input-phone" type='text' name="text" style="width:80%;height:200px"/> */}
                         <textarea class="input-phone" type='text' 
