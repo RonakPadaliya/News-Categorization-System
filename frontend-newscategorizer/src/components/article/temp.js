@@ -70,7 +70,7 @@ function Article() {
                 data.status!=='ok'?
                     <h1>Error...</h1>
                 :
-                    <div class="container">
+                    <div>
                         <div class="row">
                             {/* <div class="row row-no-gutters"> */}
                             <div class="col-xs-12 col-md-9">

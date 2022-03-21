@@ -10,27 +10,41 @@ import Article from './components/article/Article.js';
 import CategoryViceNews from './components/categoryViceNews/CategoryViceNews.js'
 import { BrowserRouter as Router, Route, Switch, Routes} from "react-router-dom"
 import axios from "axios"
+import $ from 'jquery';
 
 function App() {
 
-  const [perticularNewsData, setPerticularNewsData] = useState([])
-
-  function getnewsdata(data){
-    setPerticularNewsData(data)
-    console.log("News Data in App.js = ", perticularNewsData)
+  const topFunction = () => {
+    $('html, body').animate({
+      scrollTop: $("#myarticle").offset().top
+    }, 0);  
   }
+
+  useEffect(() => {
+    const mybutton = document.getElementById("myBtn");
+
+    window.addEventListener('scroll', ()=>{
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    })
+  },[]);
 
   return (
     <Router>
       <div class="App" id="myarticle">
+
+        <button onClick={topFunction} id="myBtn" title="Go to top">Top</button>
+
         <Navbar />
 
         <Routes>
           {/* <Route path={`/`} element={<Navbar/>}/> */}
-          <Route exact path="/" element={<Home getnewsdata={getnewsdata}/>}/>
+          <Route exact path="/" element={<Home/>}/>
           <Route path={`/about`}element={<About/>}/>
           <Route path={`/news-categorizer`} element={<Categorizer/>}/>
-          {/* <Route path={`/article`} element={<Article perticularNewsData={perticularNewsData}/>}/> */}
           <Route path={`/article`} element={<Article />}/>
           <Route path={`/contact`} element={<Contact />}/>
           <Route path={`/category`} element={<CategoryViceNews />}/>

@@ -7,12 +7,12 @@ import Article from '../article/Article.js';
 import Carousel from '../carousel/Carousel.js';
 import $ from 'jquery';
 
-function Home({getnewsdata}) {
+function Home() {
 
     const [newsData,setNewsData] = useState([])
 
     useEffect(()=>{
-        axios.get('https://api.currentsapi.services/v1/latest-news?apiKey=GTc76J05xalLJ9s7EwkdnQv_5ba8sjsKt0lHMhX39vjpM3Qt')
+        axios.get('https://api.currentsapi.services/v1/search?apiKey=GTc76J05xalLJ9s7EwkdnQv_5ba8sjsKt0lHMhX39vjpM3Qt&page_size=199')
             .then(res=>{
                 let data=res.data
                 console.log(data)
@@ -20,9 +20,6 @@ function Home({getnewsdata}) {
                 console.log("data.articles = ", data.news)
                 console.log("newsdata = ", newsData)
                 
-                getnewsdata(data)
-                // localStorage.clear()
-                // localStorage.setItem("newsData",JSON.stringify(data))
             })
             .catch(err => {"Error in fetching News !"
                     console.log(err)})
@@ -37,9 +34,14 @@ function Home({getnewsdata}) {
     return (
         // <div style={{width:'100%'}} class="homebg">
         <div style={{width:'100%'}} class="bg-light">
-            <div class="m-3">
-                <Carousel />
-            </div>
+                {
+                    newsData.status==='ok'?
+                        <div class="m-3">
+                            <Carousel />
+                        </div>
+                    :
+                        <p>Carousel Loading...</p>
+                }
 
             <div class="support-grid"></div>
 
@@ -65,7 +67,7 @@ function Home({getnewsdata}) {
                             {
                                 newsData.news.map((article, index) => (
                                     index !== 0?
-                                        <div class="item-2">
+                                        <div class={`item-${index+1}`}>
                                             <Link to={`/article/?id=${index}&key=${article.id}`} class="home-card">
                                                 {/* <div class="d-flex justify-content-center">
                                                     <p>{article.publishedAt.substr(0,10)}</p>

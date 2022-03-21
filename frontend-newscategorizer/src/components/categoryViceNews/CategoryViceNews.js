@@ -11,7 +11,7 @@ function CategoryViceNews() {
     const [newsData,setNewsData] = useState([])
 
     useEffect(()=>{
-        axios.get('https://api.currentsapi.services/v1/search?apiKey=GTc76J05xalLJ9s7EwkdnQv_5ba8sjsKt0lHMhX39vjpM3Qt&category='+type)
+        axios.get('https://api.currentsapi.services/v1/search?apiKey=GTc76J05xalLJ9s7EwkdnQv_5ba8sjsKt0lHMhX39vjpM3Qt&page_size=200&category='+type)
             .then(res=>{
                 let data=res.data
                 setNewsData(data)
