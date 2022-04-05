@@ -2,6 +2,7 @@ import React,{ useEffect, useState} from "react";
 import {useLocation} from 'react-router-dom';
 import axios from 'axios';
 import { Redirect,Link } from "react-router-dom";
+import '../home/Home.css';
 
 function CategoryViceNews() {
 
@@ -37,7 +38,7 @@ function CategoryViceNews() {
                                             <div class="thumb" style={{backgroundImage: `url(${article.image})`}}></div>
                                             <article>
                                                 <h6>{article.title}</h6>
-                                                <span>{article.author}</span>
+                                                {/* <span>{article.author}</span> */}
                                             </article>
                                             <div class="d-flex flex-wrap justify-content-center">
                                                 {

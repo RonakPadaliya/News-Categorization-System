@@ -43,7 +43,7 @@ function Home() {
                         <p>Carousel Loading...</p>
                 }
 
-            <div class="support-grid"></div>
+                <div class="support-grid"></div>
 
                 {
                     newsData.status==='ok'?
@@ -53,7 +53,7 @@ function Home() {
                                     <div class="thumb" style={{backgroundImage: `url(${newsData.news[0].image})`}}></div>
                                     <article>
                                         <h6>{newsData.news[0].title}</h6>
-                                        <span>{newsData.news[0].author}</span>
+                                        {/* <span>{newsData.news[0].author}</span> */}
                                     </article>
                                     <div class="d-flex flex-wrap justify-content-center">
                                         {
@@ -75,7 +75,7 @@ function Home() {
                                                 <div class="thumb" style={{backgroundImage: `url(${article.image})`}}></div>
                                                 <article>
                                                     <h6>{article.title}</h6>
-                                                    <span>{article.author}</span>
+                                                    {/* <span>{article.author}</span> */}
                                                 </article>
                                                 <div class="d-flex flex-wrap justify-content-center">
                                                     {
