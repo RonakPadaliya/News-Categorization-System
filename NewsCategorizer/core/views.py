@@ -76,7 +76,7 @@ def PredictCategory(request):
         cv.fit(dataset.Text)
         text = cv.transform([request.POST['mynews']])
         news=request.POST['mynews']
-        model = joblib.load('./oneVsRest.joblib')
+        model = joblib.load('./MNB.joblib')
         category = model.predict(text)
 
         if category == [0]:     
@@ -129,7 +129,7 @@ class CategoryView(APIView):
         cv.fit(dataset.Text)
         text = cv.transform([request.data['news']])
         news=request.data['news']
-        model = joblib.load('./oneVsRest.joblib')
+        model = joblib.load('./MNB.joblib')
         category = model.predict(text)
 
         if category == [0]:     
