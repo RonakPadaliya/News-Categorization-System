@@ -80,7 +80,7 @@ def PredictCategory(request):
         category = model.predict(text)
 
         if category == [0]:     
-            result = "WellNess News"
+            result = "WELLNESS News"
         elif category == [1]:
             result = "POLITICS News"
         elif category == [2]:
@@ -133,7 +133,7 @@ class CategoryView(APIView):
         category = model.predict(text)
 
         if category == [0]:     
-            result = "WellNess News"
+            result = "WELLNESS News"
         elif category == [1]:
             result = "POLITICS News"
         elif category == [2]:
